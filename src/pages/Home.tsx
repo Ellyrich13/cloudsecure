@@ -9,7 +9,7 @@ function Home() {
           <span className="inline-block bg-teal-500/10 text-teal-400 text-sm font-medium px-4 py-1 rounded-full mb-6 border border-teal-500/20">
             Enterprise-grade cloud security
           </span>
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight tracking-tight">
             Secure your cloud.<br />
             <span className="text-teal-400">Sleep at night.</span>
           </h1>

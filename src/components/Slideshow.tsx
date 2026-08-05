@@ -1,25 +1,8 @@
 import { useState, useEffect } from 'react'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { slides } from '../data/slides'
 
 function Slideshow() {
-  const slides = [
-    {
-      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1600&q=80',
-      caption: 'Real-time infrastructure monitoring',
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1653387300291-bfa1eeb90e16?auto=format&fit=crop&w=1600&q=80',
-      caption: 'Automated threat analysis at scale',
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1597733336794-12d05021d510?auto=format&fit=crop&w=1600&q=80',
-      caption: 'Protecting connections across every cloud',
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1633265486064-086b219458ec?auto=format&fit=crop&w=1600&q=80',
-      caption: 'Locking down access, one credential at a time',
-    },
-  ]
-
   const [current, setCurrent] = useState(0)
 
   useEffect(() => {
@@ -27,7 +10,7 @@ function Slideshow() {
       setCurrent((prev) => (prev + 1) % slides.length)
     }, 4000)
     return () => clearInterval(timer)
-  }, [slides.length])
+  }, [])
 
   return (
     <div className="relative rounded-xl overflow-hidden shadow-2xl h-72 md:h-96">
@@ -51,14 +34,14 @@ function Slideshow() {
         aria-label="Previous slide"
         className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white w-10 h-10 rounded-full flex items-center justify-center transition"
       >
-        ‹
+        <ChevronLeft size={20} />
       </button>
       <button
         onClick={() => setCurrent((current + 1) % slides.length)}
         aria-label="Next slide"
         className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white w-10 h-10 rounded-full flex items-center justify-center transition"
       >
-        ›
+        <ChevronRight size={20} />
       </button>
 
       <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">

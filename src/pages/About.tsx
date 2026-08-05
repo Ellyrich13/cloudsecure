@@ -1,17 +1,13 @@
 import FadeIn from '../components/FadeIn'
+import { team } from '../data/team'
 
 function About() {
-  const team = [
-    { name: 'Amara Chen', role: 'Founder & CEO', bio: 'Former security lead at a Fortune 500 cloud provider.' },
-    { name: 'David Osei', role: 'Head of Engineering', bio: '15 years building infrastructure at scale.' },
-    { name: 'Priya Nair', role: 'Head of Compliance', bio: 'Specialist in SOC 2, ISO 27001, and GDPR frameworks.' },
-  ]
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-blue-950 to-slate-950 text-white pt-32 pb-24 px-6">
       <div className="max-w-4xl mx-auto">
         <section className="text-center mb-20">
-          <h1 className="text-4xl font-bold mb-6">Our Mission</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-3 tracking-tight">Our Mission</h1>
+          <div className="w-12 h-1 bg-teal-400 rounded-full mx-auto mb-6" />
           <p className="text-slate-300 leading-relaxed max-w-2xl mx-auto">
             CloudSecure was founded on a simple belief: enterprise-grade security
             shouldn't require an enterprise-sized team. We build tools that let
@@ -26,7 +22,7 @@ function About() {
             {team.map((member, i) => (
               <FadeIn key={member.name} delay={i * 100}>
                 <div className="bg-blue-950/40 border border-slate-800 rounded-xl p-6 text-center hover:border-teal-500/50 transition">
-                  <div className="w-16 h-16 rounded-full bg-teal-500/20 mx-auto mb-4 flex items-center justify-center text-2xl">
+                  <div className="w-16 h-16 rounded-full bg-teal-500/20 mx-auto mb-4 flex items-center justify-center text-2xl font-semibold text-teal-400">
                     {member.name.charAt(0)}
                   </div>
                   <h3 className="font-semibold mb-1">{member.name}</h3>
