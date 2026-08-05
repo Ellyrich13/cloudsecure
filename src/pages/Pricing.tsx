@@ -1,39 +1,15 @@
 import { Link } from 'react-router-dom'
+import { Check } from 'lucide-react'
 import FadeIn from '../components/FadeIn'
+import { tiers } from '../data/pricing'
 
 function Pricing() {
-  const tiers = [
-    {
-      name: 'Starter',
-      price: '$29',
-      period: '/month',
-      description: 'For small teams getting started with cloud security.',
-      features: ['Up to 10 users', 'Single cloud provider', 'Basic threat detection', 'Email support'],
-      highlighted: false,
-    },
-    {
-      name: 'Pro',
-      price: '$99',
-      period: '/month',
-      description: 'For growing teams that need full visibility.',
-      features: ['Up to 50 users', 'Multi-cloud support', 'Real-time threat detection', 'Compliance monitoring', 'Priority support'],
-      highlighted: true,
-    },
-    {
-      name: 'Enterprise',
-      price: 'Custom',
-      period: '',
-      description: 'For organizations with advanced security needs.',
-      features: ['Unlimited users', 'Multi-cloud support', 'Automated incident response', 'Dedicated account manager', '24/7 phone support'],
-      highlighted: false,
-    },
-  ]
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-blue-950 to-slate-950 text-white pt-32 pb-24 px-6">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold mb-4">Simple, transparent pricing</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-3 tracking-tight">Simple, transparent pricing</h1>
+          <div className="w-12 h-1 bg-teal-400 rounded-full mx-auto mb-4" />
           <p className="text-slate-400">Choose the plan that fits your team.</p>
         </div>
 
@@ -61,13 +37,13 @@ function Pricing() {
                 <ul className="space-y-3 mb-8">
                   {tier.features.map((f) => (
                     <li key={f} className="flex items-center gap-2 text-sm text-slate-300">
-                      <span className="text-teal-400">✓</span>
+                      <Check size={16} className="text-teal-400 shrink-0" />
                       {f}
                     </li>
                   ))}
                 </ul>
                 <Link
-                  to="/contact"
+                  to={`/signup?plan=${tier.name}`}
                   className={`block text-center py-3 rounded-lg font-semibold transition ${
                     tier.highlighted
                       ? 'bg-teal-500 hover:bg-teal-400 text-slate-950'
